@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class TerrainObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Sprite terrainSprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        terrainSprite = spriteRenderer.sprite;
     }
 }
