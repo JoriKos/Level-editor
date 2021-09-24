@@ -9,5 +9,11 @@ public class TerrainSelector : MonoBehaviour
     [SerializeField] private Button[] buttonArray;
     [SerializeField] private int selectedTerrain;
 
-
+    private void Awake()
+    {
+        for (int i = 0; i < buttonArray.Length; i++)
+        {
+            buttonArray[i] = FindObjectOfType<Button>();
+        }
+    }
 }
