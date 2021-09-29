@@ -7,6 +7,8 @@ public class Grid
     [SerializeField] private int width;
     [SerializeField] private int height;
     [SerializeField] private float cellSize;
+    [SerializeField] private TerrainType terrainType;
+    private TerrainObject terrainObject;
     private int[,] gridArray;
 
     public Grid(int width, int height, float cellSize)
@@ -38,5 +40,20 @@ public class Grid
     {
         x = Mathf.FloorToInt(worldPosition.x / cellSize);
         y = Mathf.FloorToInt(worldPosition.y / cellSize);
+    }
+
+    public void CreateObject(int x, int y, int terrainTypeInt)
+    {
+        if(x >= 0 && y >= 0 && x < width && y < height)
+        {
+            gridArray[x, y] = terrainTypeInt;
+            
+            switch (terrainTypeInt)
+            {
+                case 0:
+                    
+                    break;
+            }
+        }
     }
 }
