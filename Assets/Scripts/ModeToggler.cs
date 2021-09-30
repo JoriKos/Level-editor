@@ -17,20 +17,27 @@ public class ModeToggler : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.P))
         {
             //Turn on playing mode
-            if (editingModeObject && !playingModeObject)
+            if (isEditing)
             {
                 editingModeObject.SetActive(false);
                 playingModeObject.SetActive(true);
+                isEditing = false;
             }
             //Turn on editing mode
-            if(!editingModeObject && playingModeObject)
+            else if (!isEditing)
             {
                 editingModeObject.SetActive(true);
                 playingModeObject.SetActive(false);
+                isEditing = true;
             }
         }
+    }
+
+    public bool GetEditingCheck()
+    {
+        return isEditing;
     }
 }
