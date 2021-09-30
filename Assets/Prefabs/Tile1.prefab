@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7419405074749750431
+--- !u!1 &6005024506259272378
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7419405074749750426}
-  - component: {fileID: 7419405074749750425}
-  - component: {fileID: 7419405074749750424}
-  - component: {fileID: 7419405074749750427}
-  - component: {fileID: 7419405074749750420}
+  - component: {fileID: 6005024506259272357}
+  - component: {fileID: 6005024506259272356}
+  - component: {fileID: 6005024506259272358}
+  - component: {fileID: 6005024506259272359}
+  - component: {fileID: 4643634016015661472}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Tile1
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7419405074749750426
+--- !u!4 &6005024506259272357
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419405074749750431}
+  m_GameObject: {fileID: 6005024506259272378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.98, y: -2.48, z: -1.164733}
-  m_LocalScale: {x: 1, y: 1, z: 0.232}
+  m_LocalPosition: {x: 0.51, y: -5.01, z: -1.164733}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7419405074749750425
+--- !u!212 &6005024506259272356
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419405074749750431}
+  m_GameObject: {fileID: 6005024506259272378}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 49c30eb49939cbe42b543bed07d10166, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2c6c6e49cd98d444a0b8a3faf835e33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,49 +82,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7419405074749750424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419405074749750431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad02a19cfea9f834c9c5a5a56b4fc988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRB: {fileID: 7419405074749750427}
-  playerSprite: {fileID: 21300000, guid: 49c30eb49939cbe42b543bed07d10166, type: 3}
-  movementSpeed: 50
---- !u!50 &7419405074749750427
+--- !u!50 &6005024506259272358
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419405074749750431}
-  m_BodyType: 0
+  m_GameObject: {fileID: 6005024506259272378}
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7419405074749750420
+--- !u!61 &6005024506259272359
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419405074749750431}
+  m_GameObject: {fileID: 6005024506259272378}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -144,3 +129,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4643634016015661472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005024506259272378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62c822e7059b00458ca8ed83c98555b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundTile: {fileID: 0}
+  platformTile: {fileID: 0}
+  breakablePlatformTile: {fileID: 0}
+  clickedTile: {fileID: 0}

@@ -2,58 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid
+public class Grid : MonoBehaviour
 {
     [SerializeField] private int width;
     [SerializeField] private int height;
-    [SerializeField] private float cellSize;
-    [SerializeField] private TerrainType terrainType;
-    private TerrainObject terrainObject;
-    private int[,] gridArray;
+    [SerializeField] private EmptyTile tilePrefab;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private GameObject gridParent;
 
-    public Grid(int width, int height, float cellSize)
+
+    private Dictionary<Vector3, EmptyTile> tiles;
+
+    private void Awake()
     {
-        this.width = width;
-        this.height = height;
-        this.cellSize = cellSize;
+        GenerateGrid();
+    }
 
-        gridArray = new int[width, height];
-
-        for (int i = 0; i < gridArray.GetLength(0); i++)
+    private void GenerateGrid()
+    {
+        tiles = new Dictionary<Vector3, EmptyTile>();
+        int x;
+        int y;
+        for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < gridArray.GetLength(1); j++)
+            x = i;
+            for (int j = 0; j < height; j++)
             {
-                Debug.DrawLine(GetWorldPosition(i, j), GetWorldPosition(i, j + 1), Color.white, 100f);
-                Debug.DrawLine(GetWorldPosition(i, j), GetWorldPosition(i + 1, j), Color.white, 100f);
+                y = j;
+                var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y, 1), Quaternion.identity);
+                spawnedTile.name = $"Tile {x} {y}";
+                spawnedTile.transform.parent = gridParent.transform;
+
+                tiles[new Vector2(x, y)] = spawnedTile;
             }
         }
-        Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-        Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
+        cameraTransform.transform.position = new Vector3((float)width/ 2 -0.5f, (float)height / 2 -0.5f, 0);
     }
 
-    private Vector3 GetWorldPosition(int x, int y)
+    public EmptyTile GetTileAtPosition(Vector3 pos)
     {
-        return new Vector3(x, y) * cellSize;
-    }
-
-    public void GetXY(Vector3 worldPosition, out int x, out int y)
-    {
-        x = Mathf.FloorToInt(worldPosition.x / cellSize);
-        y = Mathf.FloorToInt(worldPosition.y / cellSize);
-    }
-
-    public void CreateObject(int x, int y, int terrainTypeInt)
-    {
-        if(x >= 0 && y >= 0 && x < width && y < height)
+        if(tiles.TryGetValue(pos, out var tile))
         {
-            gridArray[x, y] = terrainTypeInt;
-            
-            switch (terrainTypeInt)
-            {
-                case 0:
-                    
-                    break;
-            }
+            return tile;
         }
+        return null;
     }
 }

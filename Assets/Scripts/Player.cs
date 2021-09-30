@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
         startTimer = false;
     }
 
+    //Jump timer + AD
     private void Update()
     {
         if (startTimer)
